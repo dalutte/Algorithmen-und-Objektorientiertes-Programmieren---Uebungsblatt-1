@@ -3,52 +3,56 @@ using System;
 
 internal class Program
 {
-    //private static int[] Agen(int n, int Og)
-    //{
-    //    int[] num1 = new int[n];
-    //    Random r = new Random();
+    private static int[] Agen(int n, int max)
+    {
+        int[] arr = new int[n];
+        Random rnd = new Random();
 
-    //    for (int i = 1; i <= Og; i++)
-    //    {
-    //        for (int j = 0; j < n; j++)
-    //        {
-    //            num1[j] = r.Next(1,n);
-    //        }
-    //    }
-    //    return num1;
-    //}
+        //füllt ein Array mit der Länge "n" mit zufälligen Zahlen bis zur Obergenze "max" 
+        for (int i = 0; i < n; i++)
+        {
+            arr[i] = rnd.Next(1, max + 1);
+        }
+        return arr; 
+    }
 
     private static bool Check(int[] list)
     {
-            int[] found = new int[10];
+        bool[] found = new bool[11];
 
-            int i = 0;
-            foreach (int item in list)
+        //Wenn Zahl kleiner 10,wird sie ins Array gespeichert 
+        foreach (int num in list)
+        {
+            if (num >= 0 && num <= 10)
             {
-                if (item >= 1 && item <= 10)
-                {
-                    found[i] = item;
-                    i++;
-                    Console.WriteLine(item);
-                }
+                found[num] = true;
             }
+        }
 
-            if (found.Length < 10)
+        // Überprüft ob alle Zahlen von 1 - 10 im Array vorkommen
+        for (int i = 0; i <= 10; i++)
+        {
+            if (!found[i])
             {
                 return false;
             }
-            return true;
+        }
+        return true;
     }
 
 
     private static void Main(string[] args)
     {
-            //int Arraylänge = 16;
-            //int Obergrenze = 20;
-            //int[] Liste = Agen(Arraylänge, Obergrenze);
-            //Console.WriteLine(Agen(Arraylänge,Obergrenze
-
-            Console.WriteLine(Check(Liste));
+        int Arraylänge = 10;
+        int Obergrenze = 20;
+        int[] Liste = Agen(Arraylänge, Obergrenze);
+        
+        foreach(int i in Liste)
+        {
+            Console.Write(i + "," );
+        }
+        Console.Write("\n");
+        Console.WriteLine(Check(Agen(Arraylänge,Obergrenze)));
     }
     
 }
