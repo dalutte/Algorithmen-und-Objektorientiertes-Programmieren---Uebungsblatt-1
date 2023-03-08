@@ -45,7 +45,8 @@ internal class Program
     {
         int Arraylänge = 20;
         int Obergrenze = 15;
-        int Durchführungen = 1000;
+        Console.WriteLine("Wie viele Durchführungen?");
+        int Durchführungen = int.Parse(Console.ReadLine());
         int gefunden = 0, nichtgefunden = 0;
         double Prozent;
 
