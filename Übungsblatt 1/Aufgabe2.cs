@@ -45,8 +45,9 @@ internal class Program
     {
         int Arraylänge = 20;
         int Obergrenze = 15;
-        int Durchführungen = 100;
+        int Durchführungen = 1000;
         int gefunden = 0, nichtgefunden = 0;
+        double Prozent;
 
         //generiert 20 zufällige Arrays und gibt die Anzahl der Arrays aus in der die Zahlen 1-10 vorkommen aus
         for (int x  = 0; x < Durchführungen; x++)
@@ -73,7 +74,7 @@ internal class Program
             }
         }
 
-        double Prozent = (gefunden / Durchführungen)*100;  
-        Console.WriteLine("Durchführungen: {3} ,gefunden: {0} , nicht gefunden: {1} , Prozent: {2}", gefunden, nichtgefunden,Prozent,Durchführungen);
+        Prozent = (double) gefunden / Durchführungen * 100;
+        Console.WriteLine("Durchführungen: {3} ,gefunden: {0} , nicht gefunden: {1} , Prozent: {2}%", gefunden, nichtgefunden,Prozent,Durchführungen);
     }
 }
