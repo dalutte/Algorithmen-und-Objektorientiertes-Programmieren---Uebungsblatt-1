@@ -40,17 +40,16 @@ internal class Program
         return true;
     }
 
-
     private static void Main(string[] args)
     {
-        int Arraylänge = 20;
+        int Arraylänge = 10;
         int Obergrenze = 15;
         Console.WriteLine("Wie viele Durchführungen?");
         int Durchführungen = int.Parse(Console.ReadLine());
         int gefunden = 0, nichtgefunden = 0;
         double Prozent;
 
-        //generiert 20 zufällige Arrays und gibt die Anzahl der Arrays aus in der die Zahlen 1-10 vorkommen aus
+        //generiert zufällige Arrays und gibt die Anzahl der Arrays aus in der die Zahlen 1-10 vorkommen aus
         for (int x  = 0; x < Durchführungen; x++)
         {
             int[] Liste = Agen(Arraylänge, Obergrenze);
@@ -76,6 +75,7 @@ internal class Program
         }
 
         Prozent = (double) gefunden / Durchführungen * 100;
-        Console.WriteLine("Durchführungen: {3} ,gefunden: {0} , nicht gefunden: {1} , Prozent: {2}%", gefunden, nichtgefunden,Prozent,Durchführungen);
+        Console.Write("Durchführungen: {2} ,gefunden: {0} , nicht gefunden: {1} ,",gefunden, nichtgefunden,Durchführungen);
+        Console.WriteLine("Prozent: " + String.Format("{0:00.00}",Prozent));
     }
 }
