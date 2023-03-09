@@ -42,7 +42,7 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        int Arraylänge = 10;
+        int Arraylänge = 30;
         int Obergrenze = 15;
         Console.WriteLine("Wie viele Durchführungen?");
         int Durchführungen = int.Parse(Console.ReadLine());
@@ -74,8 +74,8 @@ internal class Program
             }
         }
 
-        Prozent = (double) gefunden / Durchführungen * 100;
-        Console.Write("Durchführungen: {2} ,gefunden: {0} , nicht gefunden: {1} ,",gefunden, nichtgefunden,Durchführungen);
-        Console.WriteLine("Prozent: " + String.Format("{0:00.00}",Prozent));
+        Prozent = (double) gefunden / Durchführungen;
+        Console.Write("Durchführungen: {2}gefunden: {0}nicht gefunden: {1}",gefunden + ("\n"),nichtgefunden + ("\n"),Durchführungen + ("\n"));
+        Console.WriteLine("Prozent: " + String.Format("{0:#.0%}",Prozent));
     }
 }
