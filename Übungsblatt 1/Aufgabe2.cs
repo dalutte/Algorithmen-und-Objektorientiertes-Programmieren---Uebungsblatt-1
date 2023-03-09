@@ -62,18 +62,19 @@ internal class Program
 
             if (Check(Agen(Arraylänge, Obergrenze)) == false)
             {
-                //Console.BackgroundColor = ConsoleColor.Red;
+                Console.BackgroundColor = ConsoleColor.Red;
                 //Console.WriteLine("In dem Array befinden sich nicht alle Zahlen von 1-10");
                 nichtgefunden++; 
             }
             else
             {
-                //Console.BackgroundColor = ConsoleColor.Green;
+                Console.BackgroundColor = ConsoleColor.Green;
                 //Console.WriteLine("Die Zahlen 1-10 befinden sich im Array");
                 gefunden++;
             }
         }
 
+        Console.BackgroundColor = ConsoleColor.Black;
         Prozent = (double) gefunden / Durchführungen;
         Console.Write("Durchführungen: {2}gefunden: {0}nicht gefunden: {1}",gefunden + ("\n"),nichtgefunden + ("\n"),Durchführungen + ("\n"));
         Console.WriteLine("Prozent: " + String.Format("{0:#.0%}",Prozent));
