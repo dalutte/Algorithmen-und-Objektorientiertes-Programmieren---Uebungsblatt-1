@@ -1,5 +1,7 @@
 ﻿using System.Security.Cryptography;
-using System; 
+using System;
+using System.Diagnostics;
+using System.IO.Pipes;
 
 internal class Program
 {
@@ -49,8 +51,11 @@ internal class Program
         int gefunden = 0, nichtgefunden = 0;
         double Prozent;
 
+        Stopwatch watch = new Stopwatch();
+        watch.Start();
+
         //generiert zufällige Arrays und gibt die Anzahl der Arrays aus in der die Zahlen 1-10 vorkommen aus
-        for (int x  = 0; x < Durchführungen; x++)
+        for (int x = 0; x < Durchführungen; x++)
         {
             int[] Liste = Agen(Arraylänge, Obergrenze);
 
@@ -64,7 +69,7 @@ internal class Program
             {
                 Console.BackgroundColor = ConsoleColor.Red;
                 //Console.WriteLine("In dem Array befinden sich nicht alle Zahlen von 1-10");
-                nichtgefunden++; 
+                nichtgefunden++;
             }
             else
             {
@@ -74,9 +79,13 @@ internal class Program
             }
         }
 
+        watch.Stop();
+
         Console.BackgroundColor = ConsoleColor.Black;
-        Prozent = (double) gefunden / Durchführungen;
-        Console.Write("Durchführungen: {2}gefunden: {0}nicht gefunden: {1}",gefunden + ("\n"),nichtgefunden + ("\n"),Durchführungen + ("\n"));
-        Console.WriteLine("Prozent: " + String.Format("{0:#.0%}",Prozent));
+        Prozent = (double)gefunden / Durchführungen;
+        Console.Write("Durchführungen: {2}gefunden: {0}nicht gefunden: {1}", gefunden + ("\n"), nichtgefunden + ("\n"), Durchführungen + ("\n"));
+        Console.WriteLine("Prozent: " + String.Format("{0:#.0%}", Prozent));
+        Console.WriteLine("Verbrauchte Zeit [m/ss/msmsms]: " + watch.Elapsed.ToString(@"m\:ss\.fff"));
+
     }
 }
